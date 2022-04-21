@@ -146,7 +146,7 @@ func Handshake(
 	conn := rlpx.NewConn(tcpConn, pubkey)
 	defer func() { _ = conn.Close() }()
 
-	handshakeTimeout := 5 * time.Second
+	handshakeTimeout := 10 * time.Second
 	handshakeDeadline := time.Now().Add(handshakeTimeout)
 	err = conn.SetDeadline(handshakeDeadline)
 	if err != nil {
